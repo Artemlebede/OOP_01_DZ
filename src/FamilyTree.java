@@ -26,4 +26,20 @@ class FamilyTree implements Serializable {
     public List<Person> getPeople() {
         return people;
     }
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Генеалогическое древо:\n");
+
+        // Проверяем, есть ли люди в древе
+        if (people.isEmpty()) {
+            sb.append("Нет данных о людях.\n");
+        } else {
+            for (Person person : people) {
+                sb.append(person.toString()).append("\n"); // Используем метод toString() класса Person
+            }
+        }
+
+        return sb.toString();
+    }
 }

@@ -34,9 +34,9 @@ public class Main {
     public static void main(String[] args) {
         FamilyTree familyTree = new FamilyTree();
 // Создаем людей
-        Person artem = new Person("Артем", 2002);
-        Person angelina = new Person("Ангелина", 2003);
-        Person sonya = new Person("Соня", 2021);
+        Person artem = new Person("Артем", 2002, 9, 13);
+        Person angelina = new Person("Ангелина", 2003, 2, 14);
+        Person sonya = new Person("Соня", 2021, 1, 1);
 // Устанавливаем родительские связи
         sonya.setMother(angelina);
         sonya.setFather(artem);
@@ -60,15 +60,14 @@ public class Main {
         try {
             loadedFamilyTree =
                     fileOps.loadFromFile("familyTree.dat");
-            System.out.println("Family tree loaded from file.");
+            System.out.println(familyTree);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 // Проверяем, что древо загрузилось правильно
         if (loadedFamilyTree != null) {
             for (Person person : loadedFamilyTree.getPeople()) {
-                System.out.println("Loaded person: " +
-                        person.getName() + ", born in " + person.getBirthYear());
+                System.out.println(person);
             }
         }
     }
